@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Code Image -Kodlarınızı Resime Çevirip Hızlıca Paylaşın!</title>
+	<link rel="stylesheet" href="style.css?v=1.0">
+	<link rel="stylesheet" href="codemirror/theme/base16-dark.css" id="theme-css">
+</head>
+<body>
+
+<h3>Code Image</h3>
+
+<p>
+Kodunuzu resme çevirin ve bu güzelliği herkesle paylaşın <br>
+Başlamak için hemen aşağıdaki alana kodunuzu yazın ya da dosyalarınızdan seçin.
+</p>
+
+<div class="editor">
+<!--	<input type="text" id="set-title">-->
+	<div class="editor-toolbar">
+		<button id="open-file-btn">Dosya Aç</button>
+		<button id="line-numbers-btn">Satır No</button>
+		<label class="select">
+			<span>Tema</span>
+			<select id="theme-switch-btn">
+				<option value="3024-night" style="background-color:black; color:white;">3024-night</option>
+				<option value="ayu-dark" style="background-color:black; color:white;">ayu-dark</option>
+				<option value="base16-dark" selected style="background-color:black; color:white;">base16-dark</option>
+				<option value="duotone-dark" style="background-color:black; color:white;">duotone-dark</option>
+			</select>
+		</label>
+		<label class="select">
+			<span>Mod</span>
+			<select id="mode-switch-btn">
+				<option value="php" style="background-color: black; color: white;">PHP</option>
+				<option value="css" style="background-color: black; color: white;">CSS</option>
+				<option value="sass" style="background-color: black; color: white;">SASS</option>
+				<option value="javascript" selected style="background-color: black; color: white;">JavaScript</option>
+				<option value="html" style="background-color: black; color: white;">HTML</option>
+			</select>
+		</label>
+		<label class="select">
+			<span>Font</span>
+			<select id="font-switch-btn">
+				<option value="monospace" style="background-color: black; color: white;">monospace</option>
+				<option value="monaco" selected style="background-color: black; color: white;">monaco</option>
+				<option value="Ubuntu Mono" style="background-color: black; color: white;">Ubuntu Mono</option>
+				<option value="Fira Code" style="background-color: black; color: white;">Fira Code</option>
+			</select>
+		</label>
+		<label class="select">
+			<span>Font Boyutu</span>
+			<select id="font-size-switch-btn">
+				<option value="14px" style="background-color: black; color: white;">14px</option>
+				<option value="16px" selected style="background-color: black; color: white;">16px</option>
+				<option value="18px" style="background-color: black; color: white;">18px</option>
+				<option value="20px" style="background-color: black; color: white;">20px</option>
+			</select>
+		</label>
+		<input type="color" id="set-color-btn" value="#a8b4bf">
+		<label class="select export-select">
+			<span>Çıkart</span>
+			<span class="export-options">
+				<span onclick="exportImage(1)">1x</span>
+				<span onclick="exportImage(2)">2x</span>
+				<span onclick="exportImage(3)">4x</span>
+			</span>
+		</label>
+	</div>
+	<div class="preview-wrapper">
+		<div class="loading"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+		<div class="preview" id="preview">
+			<div class="karton-logo">Code İmage</div>
+			<div class="preview-top">
+				<span></span>
+				<div class="title" id="title"></div>
+				<div></div>
+			</div>
+			<textarea name="" id="textarea" cols="30" rows="10">const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}</textarea>
+		</div>
+	</div>
+</div>
+<div style="text-align: center; font-size: 14px; line-height: 1.6; color: #ffffff7d; padding-top: 15px">
+	<a style="color: #fff; border-bottom: 1px solid #f8e71b; text-decoration: none" href="https://www.linkedin.com/in/umut-ka%C3%A7aro%C4%9Flu-67272a17b/">© Umut KAÇAROĞLU</a> tarafından hazırlandı. <br>
+</div>
+
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/addon/edit/matchbrackets.js"></script>
+<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="codemirror/mode/xml/xml.js"></script>
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/mode/css/css.js"></script>
+<script src="codemirror/mode/sass/sass.js"></script>
+<script src="codemirror/mode/clike/clike.js"></script>
+<script src="codemirror/mode/php/php.js"></script>
+<script src="html2canvas.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
